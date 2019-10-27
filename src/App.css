@@ -1,22 +1,136 @@
-.App {
-  text-align: center;
+*{
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+html {
+  font-size: 62.5%;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+/* Topo Nav */
+.navBar {
+  display: flex;
+  /* justify-content: space-between; */
+  height: 4rem;
+  align-items: center;
+  background: rgba(0,0,10,0.1);
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  padding: 10px;
+}
+
+.search {
+  display: flex;
+  background: #fff;
+  border: none;
+  width: 90%;
+  height: 90%;
+  border-radius: 9px;
+  margin-right: 30px;
+  align-items: center;
+}
+
+.search > input {
+  border: none;
+  width: 100%;
+  padding: 3px;
+  font-size: 1.5rem;
+  letter-spacing: 17px;
+  font-family: cursive;
+}
+
+.search > label > img {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 10px;
+}
+
+.logo {
+  margin: 4px 7px 4px 2px;
+  width: 5rem;
+  height: 4rem;
+}
+
+.logo > img {
+  margin-top: 3px;
+  width: 90%;
+  height: 90%;
+}
+
+
+/* MAIN */
+.allVideos {
+  background-color: white;
+  height: 100vh;
+}
+
+.box-videos {
+  background-color: black;
+  height: 20rem;
+}
+
+.box-videos > * {
+  margin: 25px;
+}
+
+.allVideos > * {
+  padding: 5.5rem 8rem 1.5rem 3rem;
+}
+
+.img-boxes {
+  width: 100%;
+  height: 70%;
+}
+
+.img-boxes > img {
+  width: 100%;
+  height: 100%;
+}
+
+.box-info {
+  display: flex;
+}
+
+.img-user {
+  width: 25%;
+  height: 35%;
+}
+
+.img-user > img {
+  height: 100%;
+  width: 50%;
+}
+
+/* FOOTER */
+footer {
+  background-color: black;
+  height: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0px;
+  background:rgba(50,50,50,0.3);
+}
+
+.icon-footer {
+  width: 25%;
+  margin: 0px 10px;
+}
+
+.figure-icon-footer {
+  width: 100%;
+  height: 3em;
+}
+
+.figure-icon-footer > * {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 100%;
+  }
 }
