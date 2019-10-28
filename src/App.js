@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from "./Components/NavBar/NavBar"
 import './App.css';
+import VideoApi from "./Components/API/VideoApi"
 
 class App extends React.Component {
   constructor(props) {
@@ -8,8 +9,11 @@ class App extends React.Component {
   }
 
   render() {
-    return( 
-      <NavBar />
+    return(
+      <React.Fragment> 
+        <NavBar />
+        <VideoApi />
+      </React.Fragment>
     )
   }
 }
