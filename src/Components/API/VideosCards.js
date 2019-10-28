@@ -10,13 +10,20 @@ export default class VideoCard extends React.Component {
     }
   }
 
-  cardChildren(idYoutubeVideo) { 
+  cardChildren(item) { 
     return (
-          <div className="card">
-            <div className="card-body">
-              <PlayerVideo id = {idYoutubeVideo} />
+          <React.Fragment>
+            <img src={item.imageUrl} alt="img-you" class="img-you"/>
+            <div className="css-card-body">
+              <figure class="img-user">
+                <img src= "./images/profile-icon.png" />
+              </figure>
+              <div>
+                <h5 class="">{item.nameVideo}</h5>
+                <p class="">{item.videoDescription}</p>
+              </div>
             </div>
-          </div>
+            </React.Fragment>
     )
   }
 
@@ -26,17 +33,17 @@ export default class VideoCard extends React.Component {
 
   cardDiv() {
     return( 
-      <div className="container">
-        <div className="row">
-          {this.state.result.map((item) => {
-            return (
-              <div key={randomKey()} className="col-sm-4" > 
-                {this.cardChildren(item.idYoutubeVideo)}
+      <main className="container css-container">
+          {this.state.result.map((item, index) => {
+            if(index > 15) {
+              return (
+              <div key={randomKey()} className="div-you" > 
+                {this.cardChildren(item)}
               </div>
-              )
+              ) 
+            }
           })}
-        </div>
-      </div>
+      </main>
     )
   }
 

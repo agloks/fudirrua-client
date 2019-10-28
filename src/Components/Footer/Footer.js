@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -10,22 +11,30 @@ export default class Footer extends React.Component {
       <footer>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <img src="/images/lupa-icon.png" alt="lupa-footer" />
+              <Link to="/search">
+                <img src="/images/lupa-icon.png" alt="lupa-footer" />
+              </Link>
             </figure>
           </div>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <img src="/images/bell-icon.png" alt="bell-footer" />
+              <Link to="/news">
+                <img src="/images/bell-icon.png" alt="bell-footer" />
+              </Link>
             </figure>
           </div>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <img src="/images/share-icon.png" alt="share-footer" />
+              <Link to="/share">
+                <img src="/images/share-icon.png" alt="share-footer" />
+              </Link>
             </figure>
           </div>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <img src="/images/profile-icon.png" alt="profile-icon" />
+              <Link to="/user">
+                <img src="/images/profile-icon.png" alt="profile-icon" />
+              </Link>
             </figure>
           </div>
         </footer>
