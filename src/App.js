@@ -7,11 +7,22 @@ import Filter from "./Components/Filter/Filter"
 import {Route, Switch} from "react-router-dom"
 import VideoApiFilter from "./Components/API/VideoApiFilter"
 import VideoPlayer from "./Components/API/VideoPlayer"
+import VideoCards from "./Components/API/VideosCards"
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
+    this.state = {
+      resultFromFilter: [],
+    }
+    this.filterCall = this.filterCall.bind(this)
+  }
+
+  filterCall(rest) {
+    console.log(rest)
+    this.setState({
+          resultFromFilter: rest
+      })
   }
 
   render() {
@@ -22,12 +33,12 @@ class App extends React.Component {
         <main className = "Union" >
           <Switch>
             <Route exact path="/">
-              <Filter />
+              <Filter filterCallProp={this.filterCall} />
               <VideoApi />
             </Route>
             <Route exact path="/filters">
-              <Filter />
-              <VideoApiFilter />
+              <Filter filterCallProp={this.filterCall} />
+              <VideoCards resultFromFilter = {this.state.resultFromFilter} />
             </Route>
             <Route path="/video/player/:idyou" component={VideoPlayer} />
           </Switch>

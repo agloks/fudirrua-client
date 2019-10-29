@@ -2,12 +2,13 @@ import React from "react"
 import PlayerVideo from "./VideoPlayer"
 import randomKey from "../../random"
 import {Link} from "react-router-dom"
+import VideoFiltedContext from "../Context/Context"
 
 export default class VideoCard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      result: this.props.date
+      result: []
     }
   }
 
@@ -19,7 +20,7 @@ export default class VideoCard extends React.Component {
             </Link>
               <div className="css-card-body">
                 <figure class="img-user">
-                  <img src= "./images/profile-icon.png" />
+                  <img src= "./images/profile-icon.png" alt="proile-icon"/>
                 </figure>
               <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}} className="linkVideoPlayer">
                 <div>
@@ -33,7 +34,15 @@ export default class VideoCard extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.result)
+    if(this.props.date !== undefined) {
+      this.setState({
+        result: this.props.date
+      })
+    } else {
+      this.setState({
+        result: this.props.resultFromFilter
+      })
+    }
   }
 
   cardDiv() {
@@ -54,9 +63,16 @@ export default class VideoCard extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        {this.cardDiv()}
-      </React.Fragment>
+      <VideoFiltedContext.Consumer>
+      {(videoHome) => {
+        {/* console.log(videoHome); */}
+        return ( 
+        <React.Fragment>
+          {this.cardDiv()}
+        </React.Fragment>
+        )
+      }}
+      </VideoFiltedContext.Consumer>
     )
   }
 }

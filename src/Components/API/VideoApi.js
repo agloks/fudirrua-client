@@ -1,5 +1,6 @@
 import React from "react"
 import VideosCard from "./VideosCards"
+import VideoFiltedContext from "../Context/Context"
 
 export default class VideoApi extends React.Component {
   constructor() {
@@ -24,7 +25,11 @@ export default class VideoApi extends React.Component {
 
   render() {
     return (
-      this.state.result.length !== 0 ? <VideosCard date = {this.state.result} /> : null
+      this.state.result.length !== 0 ? 
+      <VideoFiltedContext.Provider videoHome={this.state.result}>
+        <VideosCard date = {this.state.result} /> 
+      </VideoFiltedContext.Provider>
+      : null
     )
   }
 }
