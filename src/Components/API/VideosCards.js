@@ -21,7 +21,7 @@ export default class VideoCard extends React.Component {
                 <figure class="img-user">
                   <img src= "./images/profile-icon.png" />
                 </figure>
-              <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}}>
+              <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}} className="linkVideoPlayer">
                 <div>
                   <h5 class="">{item.nameVideo}</h5>
                   <p class="">{item.videoDescription}</p>

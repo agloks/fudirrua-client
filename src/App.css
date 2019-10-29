@@ -182,7 +182,7 @@ footer {
   padding: 2.2rem 0 2.2rem 0;
   display: flex;
   align-items: center;
-  height: 40%;  
+  height: 40%;
 }
 
 .css-card-body > div > h5 {
@@ -234,7 +234,8 @@ footer {
 }
 
 .div-you > a {
-  width: 100%;
+  width: 25%;
+  height: 125%;
 }
 
 /* VIDEO */
@@ -320,11 +321,19 @@ footer {
 
   .div-you {
     display: flex;
+    margin-left: 20px;
+    /* border: 2px black solid;
+    padding: 10px 0px 0px 30px;
+    border-radius: 160px; */
   }
 
   .img-you {
     width: 80%;
     margin-right: 40px;
+  }
+
+  .linkVideoPlayer {
+    align-self:center;
   }
 
   #filter {
