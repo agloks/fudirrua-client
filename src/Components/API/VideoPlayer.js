@@ -5,8 +5,14 @@ export default class PlayerVideo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      idYoutubeVideo: this.props.id
+      idYoutubeVideo: null
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      idYoutubeVideo : this.props.match.params.idyou
+    })
   }
 
   render() {
@@ -21,11 +27,14 @@ export default class PlayerVideo extends React.Component {
     };
  
     return (
-      <YouTube
-        videoId={this.state.idYoutubeVideo} //id it's for render video youtube
-        opts={opts}
-        onReady={this._onReady}
-      />
+      <div className="youPlayerDiv">
+        {this.state.idYoutubeVideo !== null ? <YouTube
+          className="youPlayer"
+          videoId={this.state.idYoutubeVideo} //id it's for render video youtube
+          opts={opts}
+          onReady={this._onReady}
+        /> : null}
+      </div>
     );
   }
  

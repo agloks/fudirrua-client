@@ -13,6 +13,10 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;  
+}
+
 h5 {
   color: black;
 }
@@ -72,7 +76,7 @@ p {
   height: 4rem;
 }
 
-.logo > img {
+.logo > a > img {
   margin-top: 3px;
   width: 90%;
   height: 90%;
@@ -88,7 +92,7 @@ p {
   margin-right: 30px;
 }
 
-.icons > img {
+.icons > a > img {
   margin-top: 5px;
   width: 85%;
   height: 85%;
@@ -196,7 +200,8 @@ footer {
 
 /* FORM FILTER */
 .Union {
-  height: 100rem;
+  /* height: 100rem; */
+  height: 100vh;
 }
 
 .div-you {
@@ -216,6 +221,11 @@ footer {
   border-radius: 7px;
   height: 48px;
   overflow: hidden;
+  width: 80%
+}
+
+.form-control {
+  width: 55%;
 }
 
 .buttonForm {
@@ -223,6 +233,19 @@ footer {
   margin-left: 20px;
 }
 
+.div-you > a {
+  width: 100%;
+}
+
+/* VIDEO */
+.youPlayer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.youPlayerDiv {
+  margin-top: 50px;
+}
 /* media == md == 768 desktop*/
 @media (min-width: 768px) {
   html {
@@ -254,7 +277,7 @@ footer {
     background: #F5F6F6;
     position: fixed;
     height: 100vh;
-    width: 30%;
+    width: 20%;
     float: left;
     display: flex;
     flex-flow: column;
@@ -280,16 +303,28 @@ footer {
     margin-top: 20px;
   }
 
-
   .css-container {
     height: inherit;
-    width: 70%;
     position: relative;
     float: right;
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin-top: 6rem;
+    /* background: red; */
+  }
+
+  .img-user {
+    display: none;
+  }
+
+  .div-you {
+    display: flex;
   }
 
   .img-you {
-    width: 100%;
+    width: 80%;
+    margin-right: 40px;
   }
 
   #filter {
@@ -312,5 +347,9 @@ footer {
 
   .formAside {
     display: none;
+  }
+
+  .youPlayerDiv {
+    margin-bottom: 30px;
   }
 }
