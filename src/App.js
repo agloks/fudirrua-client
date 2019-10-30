@@ -21,6 +21,8 @@ class App extends React.Component {
     this.state = {
       resultFromFilter: [],
       user: null,
+      prevUpdateFilter: 0,
+      updateFilter: 0,
     }
     this.service = new AuthService();
     this.filterCall = this.filterCall.bind(this)
@@ -55,11 +57,19 @@ class App extends React.Component {
     console.log(rest)
     this.setState({
           resultFromFilter: rest,
+          updateFilter: this.state.updateFilter + 1
       })
   }
 
   componentDidMount() {
     this.fetchUser();
+  }
+
+  componentDidUpdate(prevProps, nextProps) {
+      if(this.state.prevUpdateFilter !== this.state.updateFilter) {
+        console.log(this.state.prevUpdateFilter, this.state.updateFilter)
+        this.setState({prevUpdateFilter: this.state.prevUpdateFilter+1}) //static, not is necessary use of this and setState
+      }
   }
 
   render() {
@@ -75,7 +85,7 @@ class App extends React.Component {
             </Route>
             <Route exact path="/filters">
               <Filter filterCallProp={this.filterCall} />
-              <VideoCards resultFromFilter = {this.state.resultFromFilter} />
+              {this.state.updateFilter === this.state.prevUpdateFilter ? <VideoCards key={this.state.updateFilter} resultFromFilter = {this.state.resultFromFilter} /> : null}
             </Route>
             <Route path="/video/player/:idyou" component={VideoPlayer} />
             <Route path="/login" >

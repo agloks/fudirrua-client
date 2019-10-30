@@ -6,8 +6,8 @@ export default class FilterComp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      titulo: "",
-      comedian: "",
+      nameVideo: "",
+      nameChannel: "",
       location: "",
       genre: "",
       datePublication: "Mais novos primeiro"
@@ -82,10 +82,10 @@ export default class FilterComp extends React.Component {
       <aside className="formAside">
         {this.topFilter()}
         <form className="formFilter" >
-          <label htmlFor="exampleFormControlInput1">Tags</label>
-          <textarea onChange={this.handlerChange} type="tag" className="form-control" id="exampleFormControlInput1" placeholder="Titulo" name="titulo" value={this.state.titulo}/>
+          <label htmlFor="exampleFormControlInput1">Título</label>
+          <textarea onChange={this.handlerChange} type="tag" className="form-control" id="exampleFormControlInput1" placeholder="O dia que..." name="nameVideo" value={this.state.nameVideo}/>
           <label htmlFor="exampleFormControlInput1">Comediante</label>
-          <textarea onChange={this.handlerChange} type="Comediante" className="form-control" id="exampleFormControlInput1" placeholder="Afonso Padilha" name="comedian" value={this.state.comedian}/>
+          <textarea onChange={this.handlerChange} type="Comediante" className="form-control" id="exampleFormControlInput1" placeholder="Afonso Padilha" name="nameChannel" value={this.state.nameChannel}/>
           <label htmlFor="exampleFormControlInput1">Região</label>
           <textarea onChange={this.handlerChange} type="regiao" className="form-control" id="exampleFormControlInput1" placeholder="Bahia" name="location" value={this.state.location}/>
           <label htmlFor="exampleFormControlInput1">Gênero</label>

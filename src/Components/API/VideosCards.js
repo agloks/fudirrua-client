@@ -10,6 +10,7 @@ export default class VideoCard extends React.Component {
     this.state = {
       result: []
     }
+    console.log("here")
   }
 
   cardChildren(item) { 
@@ -42,6 +43,7 @@ export default class VideoCard extends React.Component {
       this.setState({
         result: this.props.resultFromFilter
       })
+      console.log(this.props)
     }
   }
 
@@ -49,13 +51,13 @@ export default class VideoCard extends React.Component {
     return( 
       <main className="container css-container">
           {this.state.result.map((item, index) => {
-            if(index > 12) {
+            {/* if(index > 12) { */}
               return (
               <div key={randomKey()} className="div-you" > 
                 {this.cardChildren(item)}
               </div>
               ) 
-            }
+            {/* } */}
           })}
       </main>
     )
