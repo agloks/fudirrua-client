@@ -21,7 +21,7 @@ export default class FilterComp extends React.Component {
     return ( 
       <div className="top-filter">
           <img src="/images/filter-icon.png" id="filter" alt="filter-icon" />
-          <select onChange={this.handlerChange} className="form-control" id="exampleFormControlSelect1" name="datePublication">
+          <select onChange={this.handlerChange} className="" id="exampleFormControlSelect1" name="datePublication">
             <option>Mais novos primeiro</option>
             <option>Mais antigos primeiro</option>
             <option>Quantidades de Views</option>
