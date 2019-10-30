@@ -63,16 +63,9 @@ export default class VideoCard extends React.Component {
 
   render() {
     return (
-      <VideoFiltedContext.Consumer>
-      {(videoHome) => {
-        {/* console.log(videoHome); */}
-        return ( 
         <React.Fragment>
           {this.cardDiv()}
         </React.Fragment>
         )
-      }}
-      </VideoFiltedContext.Consumer>
-    )
   }
 }

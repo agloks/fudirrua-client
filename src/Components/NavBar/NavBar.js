@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
 
   icons() {
     return (
-      <div class="div-icons">
+      <div className="div-icons">
         <figure className="icons">
           <Link to="/news">
             <img className= "navImages" src="./images/bell-icon.png" alt="a"/>
