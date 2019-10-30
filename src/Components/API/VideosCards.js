@@ -16,16 +16,16 @@ export default class VideoCard extends React.Component {
     return (
           <React.Fragment>
             <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}}>
-              <img src={item.imageUrl} alt="img-you" class="img-you"/>
+              <img src={item.imageUrl} alt="img-you" className="img-you"/>
             </Link>
               <div className="css-card-body">
-                <figure class="img-user">
+                <figure className="img-user">
                   <img src= "./images/profile-icon.png" alt="proile-icon"/>
                 </figure>
               <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}} className="linkVideoPlayer">
                 <div>
-                  <h5 class="">{item.nameVideo}</h5>
-                  <p class="">{item.videoDescription}</p>
+                  <h5 className="">{item.nameVideo}</h5>
+                  <p className="">{item.videoDescription}</p>
                 </div>
               </Link>
               </div>

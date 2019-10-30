@@ -90,8 +90,8 @@ export default class FilterComp extends React.Component {
           <textarea onChange={this.handlerChange} type="regiao" className="form-control" id="exampleFormControlInput1" placeholder="Bahia" name="location" value={this.state.location}/>
           <label htmlFor="exampleFormControlInput1">Gênero</label>
           <textarea onChange={this.handlerChange} type="gênero" cols={20} row={100} className="form-control" id="exampleFormControlInput1" placeholder="Humor Negro" name="genre" value={this.state.genre}/>
-          {this.buttonForm()}
         </form>
+        {this.buttonForm()}
       </aside>
     )
   }

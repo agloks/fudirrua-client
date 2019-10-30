@@ -9,18 +9,39 @@ import VideoApiFilter from "./Components/API/VideoApiFilter"
 import VideoPlayer from "./Components/API/VideoPlayer"
 import VideoCards from "./Components/API/VideosCards"
 import Login from "./Components/Auth/Login"
+import Logout from "./Components/User/UserLogout"
 import Signup from "./Components/Auth/Signup"
 import UserInfo from "./Components/User/UserInfo"
+import AuthService from "./Components/Auth/AuthUser"
+import ProtectedRoute from "./Components/Auth/ProtectAuth"
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       resultFromFilter: [],
-      user: null
+      user: null,
     }
+    this.service = new AuthService();
     this.filterCall = this.filterCall.bind(this)
     this.getUser = this.getUser.bind(this)
+  }
+
+  fetchUser() {
+    if (this.state.user === null) {
+      this.service
+        .loggedin()
+        .then(response => {
+          this.setState({
+            user: response
+          });
+        })
+        .catch(err => {
+          this.setState({
+            user: false
+          });
+        });
+    }
   }
 
   getUser(rest) {
@@ -33,8 +54,12 @@ class App extends React.Component {
   filterCall(rest) {
     console.log(rest)
     this.setState({
-          resultFromFilter: rest
+          resultFromFilter: rest,
       })
+  }
+
+  componentDidMount() {
+    this.fetchUser();
   }
 
   render() {
@@ -59,9 +84,18 @@ class App extends React.Component {
             <Route path="/sign">
               <Signup getUser={this.getUser} />
             </Route>
-            <Route path="/user" >
-              <UserInfo user={this.state.user}/>
+            <Route path="/logout">
+              <Logout getUser={this.getUser} />
             </Route>
+            <ProtectedRoute
+                user={this.state.user}
+                exact
+                path="/user"
+                component={UserInfo}
+              />
+            {/* <Route path="/user" >
+              <UserInfo user={this.state.user}/>
+            </Route> */}
           </Switch>
           <div className="clearbox"></div>
         </main>

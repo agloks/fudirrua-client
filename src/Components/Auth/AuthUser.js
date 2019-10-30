@@ -20,7 +20,7 @@ class AuthService {
 
     loggedin() {
         return this.service.get('/api/user/logged')
-            .then(response => response.data)
+            .then(response => {console.log(response);return response.data})
     }
 
     login(email, password) {
