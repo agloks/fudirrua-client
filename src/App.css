@@ -23,6 +23,7 @@ a {
   text-decoration: none;
 }
 h4 {
+  font-size: 1.25rem;
   color: black;
 }
 label {
@@ -122,13 +123,13 @@ p {
   display: flex;
 }
 .img-user {
-  width: 80%;
-  height: 80%;
+  width: 50px;
+  height: 50px;
 }
 .img-user>img {
   margin-left: 10%;
-  height: 50%;
-  width: 50%;
+  height: 50ṕx;
+  width: 50px;
 }
 /* FOOTER */
 footer {

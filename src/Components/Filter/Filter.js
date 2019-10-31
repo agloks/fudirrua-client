@@ -36,7 +36,7 @@ export default class FilterComp extends React.Component {
   async callFilter() {
     console.log(this.state)
     const firstCall = await axios.post(
-      "http://localhost:3010/api/videos/filter",
+      `${process.env.REACT_APP_URL}/api/videos/filter`,
       this.state,
       {withCredentials: true}
     )

@@ -68,7 +68,7 @@ class App extends React.Component {
 
   async callFilter(objS) {
     const firstCall = await Axios.post(
-      "http://localhost:3010/api/videos/filter",
+      `${process.env.REACT_APP_URL}/api/videos/filter`,
       objS,
       {withCredentials: true}
     )

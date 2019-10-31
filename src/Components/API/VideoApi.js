@@ -11,7 +11,7 @@ export default class VideoApi extends React.Component {
   }
 
   async callHome() {
-    const firstCall = await fetch("http://localhost:3010/api/videos/home", {credentials: "include"})
+    const firstCall = await fetch(`${process.env.REACT_APP_URL}/api/videos/home`, {credentials: "include"})
     const firstCallToJson = await firstCall.json()
     return firstCallToJson
   }

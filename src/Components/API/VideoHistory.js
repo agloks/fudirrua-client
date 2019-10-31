@@ -12,7 +12,7 @@ export default class VideoHistory extends React.Component {
 
   async callHistory() {
     const user = this.props.user
-    const history = await Axios(`http://localhost:3010/api/videos/history/list/${user._id}`)
+    const history = await Axios(`${process.env.REACT_APP_URL}/api/videos/history/list/${user._id}`)
     return history.data.sucess
   }
 
