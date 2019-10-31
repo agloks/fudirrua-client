@@ -18,8 +18,8 @@ export default function modalFilter() {
   
     elemento = document.createElement("input")
     elemento.setAttribute("class","input-dom")
-    elemento.setAttribute("name","location")
-    elemento.setAttribute("placeholder","Estado")
+    elemento.setAttribute("name","tags")
+    elemento.setAttribute("placeholder","velho,governo,moda,brasil...")
     sectionDom.append(elemento)
   
     elemento = document.createElement("input")

@@ -24,14 +24,15 @@ export default class Signup extends Component {
     const login = this.state.login;
     this.service
       .signup(name, login, email, password)
-      .then(response => {
+      .then( async (response) => {
         this.setState({ login: "", name: "", email: "", password: "" })
-        this.props.getUser(response)
-        // this.props.history.push(
-        //   this.props.location.prevPath
-        //     ? this.props.location.prevPath
-        //     : "/projects"
-        // );
+        await this.service.logout()
+        // this.props.getUser(response)
+        this.props.history.push(
+          this.props.location.prevPath
+            ? this.props.location.prevPath
+            : "/"
+        );
       })
       .catch(error => console.log(error));
   }

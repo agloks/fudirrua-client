@@ -25,6 +25,7 @@ class App extends React.Component {
       user: null,
       prevUpdateFilter: 0,
       updateFilter: 0,
+      signUpdate: 0
     }
     this.service = new AuthService();
     this.filterCall = this.filterCall.bind(this)
@@ -49,10 +50,11 @@ class App extends React.Component {
   }
 
   getUser(rest) {
-    console.log(rest)
     this.setState({
-      user: rest
+      user: rest,
+      signUpdate: this.state.signUpdate + 1
     })
+    console.log(this.state.user)
   }
 
   filterCall(rest) {
@@ -124,18 +126,19 @@ class App extends React.Component {
             </Route>
             <Route path="/video/player/:idyou" component={VideoPlayer} />
             <Route path="/login"  children={ (props) => <Login {...props} getUser={this.getUser}/>} />
-            <Route path="/sign">
-              <Signup getUser={this.getUser} />
-            </Route>
+            <Route path="/sign" children={ (props) => <Signup {...props} getUser={this.getUser} />} />
             <Route path="/logout">
               <Logout getUser={this.getUser} />
             </Route>
             <ProtectedRoute
+                key = {this.state.signUpdate}
                 user={this.state.user}
                 getUser={this.getUser}
                 exact
                 path="/user"
                 component={UserInfo}
+                componentTwo={Filter}
+                filterCallProp ={this.filterCall}
               />
             {/* <Route path="/user" >
               <UserInfo user={this.state.user}/>

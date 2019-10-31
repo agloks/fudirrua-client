@@ -8,7 +8,8 @@ export default class FilterComp extends React.Component {
     this.state = {
       nameVideo: "",
       nameChannel: "",
-      location: "",
+      // location: "",
+      tags: "",
       genre: "",
       datePublication: "Mais novos primeiro"
     }
@@ -88,13 +89,15 @@ export default class FilterComp extends React.Component {
         {this.topFilter()}
         <form className="formFilter" >
           <label htmlFor="exampleFormControlInput1">Título</label>
-          <textarea onChange={this.handlerChange} type="tag" className="form-control" id="exampleFormControlInput1" placeholder="O dia que..." name="nameVideo" value={this.state.nameVideo}/>
+          <textarea onChange={this.handlerChange} type="text" className="form-control"  placeholder="O dia que..." name="nameVideo" value={this.state.nameVideo}/>
           <label htmlFor="exampleFormControlInput1">Comediante</label>
-          <textarea onChange={this.handlerChange} type="Comediante" className="form-control" id="exampleFormControlInput1" placeholder="Afonso Padilha" name="nameChannel" value={this.state.nameChannel}/>
-          <label htmlFor="exampleFormControlInput1">Região</label>
-          <textarea onChange={this.handlerChange} type="regiao" className="form-control" id="exampleFormControlInput1" placeholder="Bahia" name="location" value={this.state.location}/>
+          <textarea onChange={this.handlerChange} type="text" className="form-control"  placeholder="Afonso Padilha" name="nameChannel" value={this.state.nameChannel}/>
+          {/* <label htmlFor="exampleFormControlInput1">Região</label>
+          <textarea onChange={this.handlerChange} type="regiao" className="form-control" id="exampleFormControlInput1" placeholder="Bahia" name="location" value={this.state.location}/> */}
+          <label htmlFor="exampleFormControlInput1">Tags</label>
+          <textarea onChange={this.handlerChange} type="text" className="form-control"  placeholder="velho, novo, bonito, governo..." name="tags" value={this.state.tags}/>
           <label htmlFor="exampleFormControlInput1">Gênero</label>
-          <textarea onChange={this.handlerChange} type="gênero" cols={20} row={100} className="form-control" id="exampleFormControlInput1" placeholder="Humor Negro" name="genre" value={this.state.genre}/>
+          <textarea onChange={this.handlerChange} type="text" cols={20} row={100} className="form-control"  placeholder="Humor Negro" name="genre" value={this.state.genre}/>
         </form>
         {this.buttonForm()}
       </aside>
