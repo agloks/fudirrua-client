@@ -25,8 +25,18 @@ export default class NavBar extends React.Component {
     return (
       <div className="div-icons">
         <figure className="icons">
-          <Link to="/news">
-            <img className= "navImages" src="./images/bell-icon.png" alt="a"/>
+          <Link to="/maps">
+            <img className= "navImages" src="./images/gps-icon.png" alt="a"/>
+          </Link>
+        </figure>
+        <figure className="icons">
+          <Link to="/history">
+            <img className= "navImages" src="./images/history-icon.png" alt="a"/>
+          </Link>
+        </figure>
+        <figure className="icons">
+          <Link to="/hearts">
+            <img className= "navImages" src="./images/heart-filled-icon.png" alt="a"/>
           </Link>
         </figure>
         <figure className="icons">

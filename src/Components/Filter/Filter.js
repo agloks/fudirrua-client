@@ -71,9 +71,9 @@ export default class FilterComp extends React.Component {
     return (
       <div className="buttonForm">
         <Link to="/filters">
-          <button className="btn btn-secondary" type="submit" onClick={this.handlerSubmit}>Search</button>
+          <button className="btn btn-secondary btn-search" type="submit" onClick={this.handlerSubmit}>Search</button>
         </Link>
-        <button className="btn btn-secondary" onClick={this.eraseForm}>Limpar campos </button>
+        <button className="btn btn-secondary btn-erase" onClick={this.eraseForm}>Limpar campos </button>
       </div>
     )
   }

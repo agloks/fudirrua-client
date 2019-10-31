@@ -93,8 +93,8 @@ p {
 }
 .icons>a>img {
   margin-top: 5px;
-  width: 85%;
-  height: 85%;
+  width: 80%;
+  height: 80%;
 }
 /* MAIN */
 .allVideos {
@@ -189,24 +189,34 @@ footer {
 .formFilter {
   width: 85%;
   margin-left: 20px;
+  height: 65%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-top: -30px;
 }
 .formFilter>textarea {
   display: flex;
-  margin-top: 20px;
+  margin-top: 0px;
   flex-direction: column;
   resize: none;
   border-radius: 7px;
   height: 48px;
   overflow: hidden;
-  width: 80%
+  width: 93%;
+  border: 2px solid rgba(0,0,0,0.4);
+}
+.formFilter>label {
+  margin-top: 20px;
 }
 .form-control {
   width: 55%;
 }
 .buttonForm {
-  width: 80%;
+  width: 100%;
   margin-left: 20px;
 }
+
 .div-you>a {
   width: 330px;
   height: 100px;
@@ -285,6 +295,7 @@ footer {
 
 .container-form-user > form {
   display: flex;
+  flex-flow: column wrap;
 }
 
 .container-form-user > form > input {
@@ -312,18 +323,32 @@ footer {
   margin-top: 50px;
 }
 /* media == md == 768 desktop*/
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   html {
     font-size: 90%;
   }
   .navBar {
-    height: 2.5rem;
+    background: rgb(196,196,196);
+    height: 1.1rem;
+    padding: 15px;
   }
   .search {
     display: none;
   }
   .logo {
-    margin: 4px 7px 4px 14px;
+    width: 49px;
+    margin: 0px 6px 4px 24px;
+    height: 38px;
+    border: 3px solid black;
+    border-radius: 50%;
+    border-style: dotted;
+  }
+  .logo > a > img {
+    margin-top: 6px;
+    width: 80%;
+    height: 80%;
+    padding: 0px;
+    margin-left: 6px;
   }
   footer {
     display: none;
@@ -332,7 +357,7 @@ footer {
     padding: 0px;
   }
   .formAside {
-    background: #F5F6F6;
+    background: rgb(229,229,229);
     position: fixed;
     height: 100vh;
     width: 20%;
@@ -399,7 +424,7 @@ footer {
   }
 }
 /* media == md == 768 mobile*/
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .div-icons {
     display: none;
   }
@@ -488,6 +513,23 @@ footer {
   }
 }
 
+/* Media tablet */
+/* @media (min-width: 897px ) {
+  .btn-search {
+    width: 100%;
+  }
+  .btn-erase {
+    width: 100%;
+  }
+  .buttonForm {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0;
+  }
+} */
+
 
 
 /* BOTOES */
@@ -560,4 +602,22 @@ footer {
 .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+
+/* OVERRIDE */
+.btn-erase {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.btn-erase:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-search:hover {
+  background-color: white;
+  color: black;
 }
