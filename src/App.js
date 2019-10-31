@@ -140,6 +140,7 @@ class App extends React.Component {
                 path="/user"
                 component={UserInfo}
                 componentTwo={Filter}
+                componentThree={VideoHistory}
                 filterCallProp ={this.filterCall}
               />
             {/* <Route path="/user" >

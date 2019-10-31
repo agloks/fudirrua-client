@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const ProtectedRoute = ({ component: Component, componentTwo: ComponentTwo, user, getUser, filterCallProp, ...rest }) => {
+const ProtectedRoute = ({ component: Component, componentTwo: ComponentTwo, componentThree: ComponentThree, user, getUser, filterCallProp, ...rest }) => {
   console.log({ component: Component, user, ...rest });
   return (
     <Route
@@ -12,6 +12,7 @@ const ProtectedRoute = ({ component: Component, componentTwo: ComponentTwo, user
             <React.Fragment>
               <ComponentTwo filterCallProp={filterCallProp}/>
               <Component {...props} user={user} getUser={getUser}/>
+              <ComponentThree user={user}/>
             </React.Fragment>
           );
         } else {
