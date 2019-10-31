@@ -26,7 +26,7 @@ class App extends React.Component {
       user: null,
       prevUpdateFilter: 0,
       updateFilter: 0,
-      signUpdate: 0
+      signUpdate: 0,
     }
     this.service = new AuthService();
     this.filterCall = this.filterCall.bind(this)
@@ -104,6 +104,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, nextProps) {
+
       if(this.state.prevUpdateFilter !== this.state.updateFilter) {
         console.log(this.state.prevUpdateFilter, this.state.updateFilter)
         this.setState({prevUpdateFilter: this.state.prevUpdateFilter+1}) //static, not is necessary use of this and setState
@@ -140,7 +141,7 @@ class App extends React.Component {
                 path="/user"
                 component={UserInfo}
                 componentTwo={Filter}
-                componentThree={VideoHistory}
+                componentThree={window.innerWidth > 768 ? VideoHistory : Filter}
                 filterCallProp ={this.filterCall}
               />
             {/* <Route path="/user" >

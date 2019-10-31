@@ -43,13 +43,13 @@ class Login extends Component {
       <section className="section-form " >
         <div className="container-form">
           <form onSubmit={this.handleFormSubmit}>
-            <label>Email ou Login:</label>
+            <label>Email ou Username:</label>
             <input
               type="text"
               name="email"
               value={this.state.username}
               onChange={this.handleChange}
-              placeholder="Email or Username"
+              placeholder="bobodacorte@braxil.com ou bobodacorte"
             />
             <label>Password:</label>
             <input
@@ -57,7 +57,7 @@ class Login extends Component {
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
-              placeholder="password"
+              placeholder="123456789"
             />
             <button type="submit" className="btn btn-secondary" value="Login" > LOGIN </button>
           </form>

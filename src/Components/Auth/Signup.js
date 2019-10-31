@@ -67,7 +67,7 @@ export default class Signup extends Component {
               name="login"
               value={this.state.login}
               onChange={this.handleChange}
-              placeholder="Login"
+              placeholder="Username"
             />
             <input
               type="password"

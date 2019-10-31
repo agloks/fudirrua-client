@@ -7,7 +7,6 @@ export default class VideoHistory extends React.Component {
     super(props)
     this.state = {
       result: [],
-      queryMobile: null
     }
   }
 
@@ -21,13 +20,12 @@ export default class VideoHistory extends React.Component {
     const date = await this.callHistory()
     this.setState({
       result: date,
-      queryMobile: window.innerWidth
     })
   }
 
   render() {
     return (
-      this.state.queryMobile > 768 ? 
+      this.state.result.length ? 
       <VideosCard date = {this.state.result} /> 
       : null
     )

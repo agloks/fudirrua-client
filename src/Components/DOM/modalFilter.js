@@ -35,12 +35,12 @@ export default function modalFilter() {
   
     //Create Button
     elemento = document.createElement("button")  
-    elemento.setAttribute("class","btn btn-secondary button-dom-submit")
+    elemento.setAttribute("class","btn btn-secondary button-dom-submit btn-search")
     elemento.innerHTML = "Pesquisar"
     elementoDiv.append(elemento)
   
     elemento = document.createElement("button")
-    elemento.setAttribute("class","btn btn-secondary button-dom-exit")
+    elemento.setAttribute("class","btn btn-secondary button-dom-exit btn-erase")
     elemento.innerHTML = "Sair"
     elementoDiv.append(elemento)
   }
