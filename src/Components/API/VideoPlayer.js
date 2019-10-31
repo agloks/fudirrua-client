@@ -15,7 +15,6 @@ export default class PlayerVideo extends React.Component {
   async registerHistory(idyou) {
     let user = await this.service.loggedin()
     const firstCall = await Axios(`http://localhost:3010/api/videos/history/save/${idyou}/${user._id}`)
-    console.log(firstCall)
   }
 
   async componentDidMount() {

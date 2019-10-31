@@ -8,6 +8,7 @@ import {Route, Switch} from "react-router-dom"
 import VideoApiFilter from "./Components/API/VideoApiFilter"
 import VideoPlayer from "./Components/API/VideoPlayer"
 import VideoCards from "./Components/API/VideosCards"
+import VideoHistory from "./Components/API/VideoHistory"
 import Login from "./Components/Auth/Login"
 import Logout from "./Components/User/UserLogout"
 import Signup from "./Components/Auth/Signup"
@@ -130,6 +131,7 @@ class App extends React.Component {
             <Route path="/logout">
               <Logout getUser={this.getUser} />
             </Route>
+              {this.state.user && <Route path="/history" children={(props) =><VideoHistory {...props} user={this.state.user} />} />}
             <ProtectedRoute
                 key = {this.state.signUpdate}
                 user={this.state.user}
