@@ -44,40 +44,41 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="section" style={{position:"relative", top: "320px"}}>
-        <div className="container">
+      <div className="section-form" >
+        <div className="container-form">
           <form onSubmit={this.handleFormSubmit}>
-            <label>Name:</label>
             <input
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
+              placeholder="Name"
             />
-            <label>Email</label>
             <input
               type="text"
               name="email"
               value={this.state.username}
               onChange={this.handleChange}
+              placeholder="Email"
             />
-            <label>Login</label>
             <input
               type="text"
               name="login"
               value={this.state.login}
               onChange={this.handleChange}
+              placeholder="Login"
             />
-            <label>Password:</label>
             <input
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="Password"
             />
-            <input type="submit" value="Send" />
+            <button className="btn btn-secondary" type="submit" value="Send" > FAZER PARTE DA TURMA! </button>
           </form>
         </div>
+        <div className="background-image" />
       </div>
     );
   }

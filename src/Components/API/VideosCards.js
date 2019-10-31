@@ -25,7 +25,7 @@ export default class VideoCard extends React.Component {
                 </figure>
               <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}} className="linkVideoPlayer">
                 <div>
-                  <h5 className="">{item.nameVideo}</h5>
+                  <h4 className="">{item.nameVideo}</h4>
                   <p className="">{item.videoDescription}</p>
                 </div>
               </Link>

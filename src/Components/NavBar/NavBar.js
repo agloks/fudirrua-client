@@ -3,13 +3,20 @@ import {Link} from "react-router-dom"
 
 export default class NavBar extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.removeModal = this.removeModal.bind(this)
+  }
+
   mobile() {
     return (
       <span className="search">
           <label htmlFor="inputSearch">
             <img src="./images/lupa-icon.png" alt="lupa-nav" />
           </label>
-        <input placeholder="search..."  type="text" className="inputSearch " name="inputSearch"/>
+        <Link to="/filters">
+          <input placeholder="search..."  type="text" className="inputSearch " name="inputSearch"/>
+        </Link>      
       </span>
     )
   }
@@ -36,11 +43,16 @@ export default class NavBar extends React.Component {
     )
   }
 
+  removeModal() {
+    const searchDomMobile = document.getElementById("searchDom")
+    searchDomMobile.style.display = "none"
+  }
+
   computer() {
     return ( 
     <nav className="navBar">
     <figure className="logo">
-        <Link to ="/">
+        <Link to ="/" onClick={this.removeModal}>
           <img src="https://cdn.onlinewebfonts.com/svg/img_556376.png" alt="" />
         </Link>
     </figure>

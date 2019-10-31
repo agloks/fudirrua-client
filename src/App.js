@@ -14,6 +14,8 @@ import Signup from "./Components/Auth/Signup"
 import UserInfo from "./Components/User/UserInfo"
 import AuthService from "./Components/Auth/AuthUser"
 import ProtectedRoute from "./Components/Auth/ProtectAuth"
+import modalFilter from "./Components/DOM/modalFilter"
+import Axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -61,8 +63,41 @@ class App extends React.Component {
       })
   }
 
+  async callFilter(objS) {
+    const firstCall = await Axios.post(
+      "http://localhost:3010/api/videos/filter",
+      objS,
+      {withCredentials: true}
+    )
+    return firstCall.data
+ }
+
   componentDidMount() {
     this.fetchUser();
+    
+    //DOM
+    if(document.getElementsByClassName("inputSearch")[0] !== undefined) {
+      const searchMobileInput = document.getElementsByClassName("inputSearch")[0]
+      searchMobileInput.onclick = () => {
+        modalFilter()
+        const submit = document.getElementsByClassName("button-dom-submit")[0]
+        submit.onclick = async () => {
+          const allInput = document.getElementsByClassName("input-dom")
+          let objSend = {}
+          for(let x of allInput) {
+            objSend[x.name] = x.value
+          }
+          console.log(objSend)
+          await this.callFilter(objSend).then((s) => {
+            this.setState({
+              resultFromFilter: s,
+              updateFilter: this.state.updateFilter + 1
+            })
+          })
+          // console.log(resultApiFilter)
+        }
+      }
+    } 
   }
 
   componentDidUpdate(prevProps, nextProps) {
@@ -88,9 +123,7 @@ class App extends React.Component {
               {this.state.updateFilter === this.state.prevUpdateFilter ? <VideoCards key={this.state.updateFilter} resultFromFilter = {this.state.resultFromFilter} /> : null}
             </Route>
             <Route path="/video/player/:idyou" component={VideoPlayer} />
-            <Route path="/login" >
-              <Login getUser={this.getUser} />
-            </Route>
+            <Route path="/login"  children={ (props) => <Login {...props} getUser={this.getUser}/>} />
             <Route path="/sign">
               <Signup getUser={this.getUser} />
             </Route>
@@ -99,6 +132,7 @@ class App extends React.Component {
             </Route>
             <ProtectedRoute
                 user={this.state.user}
+                getUser={this.getUser}
                 exact
                 path="/user"
                 component={UserInfo}

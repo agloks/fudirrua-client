@@ -77,6 +77,11 @@ export default class FilterComp extends React.Component {
     )
   }
 
+  componentWillUnmount() {
+    const searchDomMobile = document.getElementById("searchDom")
+    searchDomMobile.style.display = "none"
+  }
+
   render() {
     return (
       <aside className="formAside">
