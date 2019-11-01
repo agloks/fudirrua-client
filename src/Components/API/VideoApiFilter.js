@@ -16,7 +16,7 @@ export default class VideoApiFilter extends React.Component {
 
   async callFilter() {
     const firstCall = await axios.post(
-      "http://localhost:3010/api/videos/filter",
+      `${process.env.REACT_APP_URL}/api/videos/filter`,
       this.appProps,
       {withCredentials: true}
     )

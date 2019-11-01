@@ -3,7 +3,7 @@ import axios from 'axios';
 class AuthService {
     constructor() {
         this.service = axios.create({
-            baseURL: "http://localhost:3010",
+            baseURL: process.env.REACT_APP_URL,
             withCredentials: true
         });
     }
@@ -33,7 +33,7 @@ class AuthService {
 
     logout() {
         return this.service.get('/api/user/logout')
-            .then(response => response.data)
+            .then(response => console.log(response.data))
     }
 }
 

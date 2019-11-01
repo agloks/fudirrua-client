@@ -11,15 +11,22 @@ export default class Footer extends React.Component {
       <footer>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <Link to="/search">
-                <img src="/images/lupa-icon.png" alt="lupa-footer" />
+              <Link to="/map">
+                <img src="/images/gps-icon.png" alt="lupa-footer" />
               </Link>
             </figure>
           </div>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <Link to="/news">
-                <img src="/images/bell-icon.png" alt="bell-footer" />
+              <Link to="/history">
+                <img src="/images/history-icon.png" alt="lupa-footer" />
+              </Link>
+            </figure>
+          </div>
+          <div className="icon-footer">
+            <figure className="figure-icon-footer">
+              <Link to="/hearts">
+                <img src="/images/heart-red.png" alt="bell-footer" />
               </Link>
             </figure>
           </div>

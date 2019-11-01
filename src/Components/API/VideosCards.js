@@ -10,6 +10,7 @@ export default class VideoCard extends React.Component {
     this.state = {
       result: []
     }
+    console.log("here")
   }
 
   cardChildren(item) { 
@@ -24,8 +25,8 @@ export default class VideoCard extends React.Component {
                 </figure>
               <Link to={{pathname: `/video/player/${item.idYoutubeVideo}`}} className="linkVideoPlayer">
                 <div>
-                  <h5 className="">{item.nameVideo}</h5>
-                  <p className="">{item.videoDescription}</p>
+                  <h4 className="">{item.nameVideo}</h4>
+                  {/* <p className="">{item.videoDescription}</p> */}
                 </div>
               </Link>
               </div>
@@ -42,19 +43,24 @@ export default class VideoCard extends React.Component {
       this.setState({
         result: this.props.resultFromFilter
       })
+      console.log(this.props)
     }
   }
 
   cardDiv() {
+    let existid = ""
     return( 
       <main className="container css-container">
           {this.state.result.map((item, index) => {
-            if(index > 12) {
-              return (
-              <div key={randomKey()} className="div-you" > 
-                {this.cardChildren(item)}
-              </div>
-              ) 
+            if(index < 100) {
+              if(!(existid.includes(item.idYoutubeVideo))) {
+                existid += item.idYoutubeVideo
+                return (
+                  <div key={randomKey()} className="div-you" data-aos="zoom-out-left" > 
+                    {this.cardChildren(item)}
+                  </div>
+                )
+              }
             }
           })}
       </main>

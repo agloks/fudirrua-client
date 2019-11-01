@@ -8,12 +8,15 @@ import {Route, Switch} from "react-router-dom"
 import VideoApiFilter from "./Components/API/VideoApiFilter"
 import VideoPlayer from "./Components/API/VideoPlayer"
 import VideoCards from "./Components/API/VideosCards"
+import VideoHistory from "./Components/API/VideoHistory"
 import Login from "./Components/Auth/Login"
 import Logout from "./Components/User/UserLogout"
 import Signup from "./Components/Auth/Signup"
 import UserInfo from "./Components/User/UserInfo"
 import AuthService from "./Components/Auth/AuthUser"
 import ProtectedRoute from "./Components/Auth/ProtectAuth"
+import modalFilter from "./Components/DOM/modalFilter"
+import Axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +24,9 @@ class App extends React.Component {
     this.state = {
       resultFromFilter: [],
       user: null,
+      prevUpdateFilter: 0,
+      updateFilter: 0,
+      signUpdate: 0,
     }
     this.service = new AuthService();
     this.filterCall = this.filterCall.bind(this)
@@ -45,21 +51,64 @@ class App extends React.Component {
   }
 
   getUser(rest) {
-    console.log(rest)
     this.setState({
-      user: rest
+      user: rest,
+      signUpdate: this.state.signUpdate + 1
     })
+    console.log(this.state.user)
   }
 
   filterCall(rest) {
     console.log(rest)
     this.setState({
           resultFromFilter: rest,
+          updateFilter: this.state.updateFilter + 1
       })
   }
 
+  async callFilter(objS) {
+    const firstCall = await Axios.post(
+      `${process.env.REACT_APP_URL}/api/videos/filter`,
+      objS,
+      {withCredentials: true}
+    )
+    return firstCall.data
+ }
+
   componentDidMount() {
     this.fetchUser();
+    
+    //DOM
+    if(document.getElementsByClassName("inputSearch")[0] !== undefined) {
+      const searchMobileInput = document.getElementsByClassName("inputSearch")[0]
+      searchMobileInput.onclick = () => {
+        modalFilter()
+        const submit = document.getElementsByClassName("button-dom-submit")[0]
+        submit.onclick = async () => {
+          const allInput = document.getElementsByClassName("input-dom")
+          let objSend = {}
+          for(let x of allInput) {
+            objSend[x.name] = x.value
+          }
+          console.log(objSend)
+          await this.callFilter(objSend).then((s) => {
+            this.setState({
+              resultFromFilter: s,
+              updateFilter: this.state.updateFilter + 1
+            })
+          })
+          // console.log(resultApiFilter)
+        }
+      }
+    } 
+  }
+
+  componentDidUpdate(prevProps, nextProps) {
+
+      if(this.state.prevUpdateFilter !== this.state.updateFilter) {
+        console.log(this.state.prevUpdateFilter, this.state.updateFilter)
+        this.setState({prevUpdateFilter: this.state.prevUpdateFilter+1}) //static, not is necessary use of this and setState
+      }
   }
 
   render() {
@@ -75,23 +124,25 @@ class App extends React.Component {
             </Route>
             <Route exact path="/filters">
               <Filter filterCallProp={this.filterCall} />
-              <VideoCards resultFromFilter = {this.state.resultFromFilter} />
+              {this.state.updateFilter === this.state.prevUpdateFilter ? <VideoCards key={this.state.updateFilter} resultFromFilter = {this.state.resultFromFilter} /> : null}
             </Route>
             <Route path="/video/player/:idyou" component={VideoPlayer} />
-            <Route path="/login" >
-              <Login getUser={this.getUser} />
-            </Route>
-            <Route path="/sign">
-              <Signup getUser={this.getUser} />
-            </Route>
+            <Route path="/login"  children={ (props) => <Login {...props} getUser={this.getUser}/>} />
+            <Route path="/sign" children={ (props) => <Signup {...props} getUser={this.getUser} />} />
             <Route path="/logout">
               <Logout getUser={this.getUser} />
             </Route>
+              {this.state.user && <Route path="/history" children={(props) =><VideoHistory {...props} component={Filter} filterCallProp={this.filterCall} user={this.state.user} />} />}
             <ProtectedRoute
+                key = {this.state.signUpdate}
                 user={this.state.user}
+                getUser={this.getUser}
                 exact
                 path="/user"
                 component={UserInfo}
+                componentTwo={Filter}
+                // componentThree={window.innerWidth > 768 ? VideoHistory : Filter}
+                filterCallProp ={this.filterCall}
               />
             {/* <Route path="/user" >
               <UserInfo user={this.state.user}/>

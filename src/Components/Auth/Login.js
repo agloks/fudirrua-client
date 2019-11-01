@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "./AuthUser";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Login extends Component {
     this.service = new AuthService();
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    console.log(props)
   }
 
   handleFormSubmit(event) {
@@ -20,11 +21,12 @@ class Login extends Component {
       .then(response => {
         this.setState({ email: "", password: "" })
         this.props.getUser(response)
-        // this.props.history.push(
-        //   this.props.location.prevPath
-        //     ? this.props.location.prevPath
-        //     : "/projects"
-        // );
+        console.log(this.props)
+        this.props.history.push(
+          this.props.location.prevPath
+            ? this.props.location.prevPath
+            : "/"
+        );
       })
       .catch(error => console.log(error));
   }
@@ -35,17 +37,31 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  componentDidMount() {
+    const navBar = document.getElementsByClassName("navBar")[0]
+    const footer = document.getElementsByTagName("footer")[0]
+    const ico = document.getElementsByClassName("navImages")
+
+    // navBar.style.background = "rgba(196,196,196,0.5)"s
+    // footer.style.background = "rgba(196,196,196,0.2)"
+    for(let x of ico) {
+      // x.style.background = "rgba(196,196,196,0.5)"
+    }
+  }
+
   render() {
+    
     return (
-      <div className="section" style={{position:"relative", top: "320px"}}>
-        <div className="container">
-          <form onSubmit={this.handleFormSubmit}>
-            <label>Email ou Login:</label>
+      <section className="section-form " >
+        <div className="container-form">
+          <form onSubmit={this.handleFormSubmit} >
+            <label>Email ou Username:</label>
             <input
               type="text"
               name="email"
               value={this.state.username}
               onChange={this.handleChange}
+              placeholder="bobodacorte@braxil.com ou bobodacorte"
             />
             <label>Password:</label>
             <input
@@ -53,15 +69,17 @@ class Login extends Component {
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="123456789"
             />
-            <input type="submit" value="Login" />
+            <button type="submit" className="btn btn-secondary btn-erase" value="Login" > LOGIN </button>
           </form>
           <p>
             Don't have account?
-            <Link to={"/signup"}> Signup</Link>
+            <Link to={"/sign"}> Signup</Link>
           </p>
+        <div className="background-image" />
         </div>
-      </div>
+      </section>
     );
   }
 }

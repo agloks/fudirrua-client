@@ -1,5 +1,7 @@
 import React from "react"
 import YouTube from 'react-youtube';
+import Axios from "axios";
+import AuthService from "../Auth/AuthUser"
 
 export default class PlayerVideo extends React.Component {
   constructor(props) {
@@ -7,12 +9,23 @@ export default class PlayerVideo extends React.Component {
     this.state = {
       idYoutubeVideo: null
     }
+    this.service = new AuthService()
   }
 
-  componentDidMount() {
+  async registerHistory(idyou) {
+    let user = await this.service.loggedin()
+    const firstCall = await Axios(`${process.env.REACT_APP_URL}/api/videos/history/save/${idyou}/${user._id}`)
+  }
+
+  async componentDidMount() {
     this.setState({
       idYoutubeVideo : this.props.match.params.idyou
     })
+    try {
+      this.registerHistory(this.props.match.params.idyou)
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
