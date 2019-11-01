@@ -129,7 +129,7 @@ export default class UserInfo extends React.Component {
           </select>
           </div>
           <div className="div-button-user-edits">
-            <button className="btn btn-secondary" type="submit" value="Send" > TROQUE DE ROUPA! </button>
+            <button className="btn btn-secondary btn-submit-user" type="submit" value="Send" > TROQUE DE ROUPA! </button>
             <button className="btn btn-secondary" value="Logout" onClick={this.logout} > Logout! </button>
           </div>
         </form>
