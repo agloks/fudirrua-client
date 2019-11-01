@@ -17,7 +17,7 @@ Hoje a plataforma está funcionando em fase de aprimoramento da primeira iteraç
 
 <<Imagem>>
 
-Depois de filtrados, é só clicar, assistir e continuar buscando...
+Depois de filtrados, é só clicar, rir e continuar rindo por mais e mais vídeos...
 
 
 
