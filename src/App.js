@@ -132,7 +132,7 @@ class App extends React.Component {
             <Route path="/logout">
               <Logout getUser={this.getUser} />
             </Route>
-              {this.state.user && <Route path="/history" children={(props) =><VideoHistory {...props} user={this.state.user} />} />}
+              {this.state.user && <Route path="/history" children={(props) =><VideoHistory {...props} component={Filter} filterCallProp={this.filterCall} user={this.state.user} />} />}
             <ProtectedRoute
                 key = {this.state.signUpdate}
                 user={this.state.user}
@@ -141,7 +141,7 @@ class App extends React.Component {
                 path="/user"
                 component={UserInfo}
                 componentTwo={Filter}
-                componentThree={window.innerWidth > 768 ? VideoHistory : Filter}
+                // componentThree={window.innerWidth > 768 ? VideoHistory : Filter}
                 filterCallProp ={this.filterCall}
               />
             {/* <Route path="/user" >

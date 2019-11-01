@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
           <div className="icon-footer">
             <figure className="figure-icon-footer">
               <Link to="/hearts">
-                <img src="/images/heart-filled-icon.png" alt="bell-footer" />
+                <img src="/images/heart-red.png" alt="bell-footer" />
               </Link>
             </figure>
           </div>

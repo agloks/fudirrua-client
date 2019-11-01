@@ -37,6 +37,18 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  componentDidMount() {
+    const navBar = document.getElementsByClassName("navBar")[0]
+    const footer = document.getElementsByTagName("footer")[0]
+    const ico = document.getElementsByClassName("navImages")
+
+    // navBar.style.background = "rgba(196,196,196,0.5)"s
+    // footer.style.background = "rgba(196,196,196,0.2)"
+    for(let x of ico) {
+      // x.style.background = "rgba(196,196,196,0.5)"
+    }
+  }
+
   render() {
     
     return (
@@ -59,7 +71,7 @@ class Login extends Component {
               onChange={this.handleChange}
               placeholder="123456789"
             />
-            <button type="submit" className="btn btn-secondary" value="Login" > LOGIN </button>
+            <button type="submit" className="btn btn-secondary btn-erase" value="Login" > LOGIN </button>
           </form>
           <p>
             Don't have account?

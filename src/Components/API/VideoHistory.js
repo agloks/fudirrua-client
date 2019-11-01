@@ -24,10 +24,14 @@ export default class VideoHistory extends React.Component {
   }
 
   render() {
+    const Component = this.props.component
     return (
-      this.state.result.length ? 
-      <VideosCard date = {this.state.result} /> 
-      : null
+      <React.Fragment> 
+        <Component filterCallProp={this.props.filterCallProp}>
+        </Component>
+        {this.state.result.length &&
+          <VideosCard date = {this.state.result} />}
+      </React.Fragment> 
     )
   }
 }

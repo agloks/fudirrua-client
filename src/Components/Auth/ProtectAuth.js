@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: Component, componentTwo: ComponentTwo, comp
             <React.Fragment>
               <ComponentTwo filterCallProp={filterCallProp}/>
               <Component {...props} user={user} getUser={getUser}/>
-              <ComponentThree user={user}/>
+              {/* <ComponentThree user={user}/> */}
             </React.Fragment>
           );
         } else {

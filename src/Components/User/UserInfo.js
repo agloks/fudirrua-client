@@ -63,7 +63,10 @@ export default class UserInfo extends React.Component {
   render() {
   return (
     <div className="section-form" >
-      <img src={this.user.imageUrl} alt="img-user" className="user-info-img" />
+      <div className="info-user-write">
+        <img src={this.user.imageUrl} alt="img-user" className="user-info-img" />
+        <h3>NAME: {this.user.name}</h3>
+      </div>
       <div className="container-form-user">
         <form onSubmit={this.handleFormSubmit}>
           <input

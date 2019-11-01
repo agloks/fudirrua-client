@@ -36,7 +36,7 @@ export default class NavBar extends React.Component {
         </figure>
         <figure className="icons">
           <Link to="/hearts">
-            <img className= "navImages" src="./images/heart-filled-icon.png" alt="a"/>
+            <img className= "navImages" src="./images/heart-red.png" alt="a"/>
           </Link>
         </figure>
         <figure className="icons">
@@ -61,9 +61,9 @@ export default class NavBar extends React.Component {
   computer() {
     return ( 
     <nav className="navBar">
-    <figure className="logo">
+    <figure className="iconsHome">
         <Link to ="/" onClick={this.removeModal}>
-          <img src="https://cdn.onlinewebfonts.com/svg/img_556376.png" alt="" />
+          <img src="./images/home2x.png" className="navImageHome" alt="hearted-icon" />
         </Link>
     </figure>
       {this.mobile()}
