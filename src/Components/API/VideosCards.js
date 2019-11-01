@@ -52,7 +52,7 @@ export default class VideoCard extends React.Component {
     return( 
       <main className="container css-container">
           {this.state.result.map((item, index) => {
-            {/* if(index < 20) { */}
+            if(index < 100) {
               if(!(existid.includes(item.idYoutubeVideo))) {
                 existid += item.idYoutubeVideo
                 return (
@@ -61,7 +61,7 @@ export default class VideoCard extends React.Component {
                   </div>
                 )
               }
-            {/* } */}
+            }
           })}
       </main>
     )

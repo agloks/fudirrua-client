@@ -66,9 +66,13 @@ export default class UserInfo extends React.Component {
       <div className="info-user-write">
         <img src={this.user.imageUrl} alt="img-user" className="user-info-img" />
         <h3>NAME: {this.user.name}</h3>
+        <p>EMAIL: {this.user.email}</p>
+        <p>USERNAME: {this.user.login}</p>
       </div>
       <div className="container-form-user">
         <form onSubmit={this.handleFormSubmit}>
+        <div className="input-label-user-profile">
+          <label forHtml="name">Nome: </label>
           <input
             type="text"
             name="name"
@@ -76,40 +80,56 @@ export default class UserInfo extends React.Component {
             onChange={this.handleChange}
             placeholder={this.user.name}
           />
-          <input
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            placeholder={this.user.email}
-          />
-          <input
-            type="text"
-            name="login"
-            value={this.state.login}
-            onChange={this.handleChange}
-            placeholder={this.user.login}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            placeholder="Password"
-          />
-          <input
-            type="password"
-            name="location"
-            value={this.state.location}
-            onChange={this.handleChange}
-            placeholder={(this.user.location === undefined | this.user.location === "") ? "Estado" : this.user.location}
-          />
+        </div>
+        <div className="input-label-user-profile">
+          <label forHtml="email">Email: </label>
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              placeholder={this.user.email}
+            />
+          </div>
+          <div className="input-label-user-profile">
+            <label forHtml="login">Username: </label>
+            <input
+              type="text"
+              name="login"
+              value={this.state.login}
+              onChange={this.handleChange}
+              placeholder={this.user.login}
+            />
+          </div>
+          <div className="input-label-user-profile">
+            <label forHtml="password">Password: </label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              placeholder="Password"
+            />
+          </div>
+          <div className="input-label-user-profile">
+            <label forHtml="location">Estado: </label>
+            <input
+              type="text"
+              name="location"
+              value={this.state.location}
+              onChange={this.handleChange}
+              placeholder={(this.user.location === undefined | this.user.location === "") ? "Estado" : this.user.location}
+            />
+          </div>
+          <div className="input-label-user-profile">
+          <label >Tema: </label>
           <select onChange={this.handleChange} className="theme-choice" name="themeDisplay">
             <option>Light</option>
             <option>Pink</option>
             <option>Black</option>
             <option>Blue</option>
           </select>
+          </div>
           <div className="div-button-user-edits">
             <button className="btn btn-secondary" type="submit" value="Send" > TROQUE DE ROUPA! </button>
             <button className="btn btn-secondary" value="Logout" onClick={this.logout} > Logout! </button>
