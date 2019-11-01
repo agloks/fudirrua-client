@@ -52,11 +52,15 @@ export default class VideoCard extends React.Component {
       <main className="container css-container">
           {this.state.result.map((item, index) => {
             {/* if(index < 20) { */}
-              return (
-              <div key={randomKey()} className="div-you" > 
-                {this.cardChildren(item)}
-              </div>
-              ) 
+              let existid = ""
+              if(!(existid.includes(item.idYoutubeVideo))) {
+                existid += item.idYoutubeVideo
+                return (
+                  <div key={randomKey()} className="div-you" > 
+                    {this.cardChildren(item)}
+                  </div>
+                )
+              }
             {/* } */}
           })}
       </main>
