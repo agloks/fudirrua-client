@@ -290,6 +290,8 @@ footer {
 }
 .formFilter>label {
   margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .form-control {
     background-color: white;
@@ -468,7 +470,9 @@ footer {
 }
 
 .btn-submit-user {
-  background-color: green;
+  background-color: green !important;
+  font-size: 1.4rem !important;
+  font-weight: bold !important;
 }
 
 .btn-submit-user:hover {
@@ -499,6 +503,8 @@ footer {
 }
 .youPlayerDiv {
   margin-top: 44px;
+  background-color: black;
+  z-index: -1;
 }
 /* media == md == 768 desktop*/
 @media (min-width: 769px) {
@@ -725,8 +731,9 @@ footer {
     margin-bottom: -6px;
     height: 5rem;
     width: 9rem;
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
+   
 
   .info-user-write {
     left: 20%;
