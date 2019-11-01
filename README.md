@@ -1,4 +1,4 @@
-#FUDIRRUÁ
+# FUDIRRUÁ
 
 ## O que é?
 
@@ -11,7 +11,7 @@ oi?
 No francês, o bôbo da corte era chamado de o bôbo do Rei (Le Fou du Roi). Como o projeto é brasileiro, demos aquela adaptada an escrita para a leitura em português ;)
 
 
-##O que faz a plataforma?
+## O que faz a plataforma?
 
 Hoje a plataforma está funcionando em fase de aprimoramento da primeira iteração, que é a disponibilização de vídeos nacionais de standup comedy categorizados por comediantes, gêneros e tags específicas de humor.
 
