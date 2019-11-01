@@ -56,7 +56,7 @@ export default class VideoCard extends React.Component {
               if(!(existid.includes(item.idYoutubeVideo))) {
                 existid += item.idYoutubeVideo
                 return (
-                  <div key={randomKey()} className="div-you" > 
+                  <div key={randomKey()} className="div-you" data-aos="zoom-out-left" > 
                     {this.cardChildren(item)}
                   </div>
                 )

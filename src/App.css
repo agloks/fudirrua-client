@@ -715,3 +715,12 @@ footer {
   background-color: white;
   color: black;
 }
+
+html::-webkit-scrollbar {
+	width: 0px
+}
+
+html::-webkit-scrollbar-track-piece {
+	background-color: transparent;
+	/* -webkit-border-radius: 6px */
+} 
