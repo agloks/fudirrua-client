@@ -47,6 +47,8 @@ export default class Signup extends Component {
     return (
       <div className="section-form" >
         <div className="container-form">
+          <span>Signup</span>
+          <hr />
           <form onSubmit={this.handleFormSubmit}>
             <input
               type="text"
@@ -76,7 +78,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
               placeholder="Password"
             />
-            <button className="btn btn-secondary" type="submit" value="Send" > FAZER PARTE DA TURMA! </button>
+            <button className="btn btn-secondary btn-signup" type="submit" value="Send" > FAZER PARTE DA TURMA! </button>
           </form>
         </div>
         <div className="background-image" />

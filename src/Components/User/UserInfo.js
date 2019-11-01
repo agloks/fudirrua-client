@@ -1,6 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import AuthService from "../Auth/AuthUser"
+import Axios from "axios"
 
 export default class UserInfo extends React.Component {
   constructor(props){
@@ -21,24 +22,21 @@ export default class UserInfo extends React.Component {
       this.logout = this.logout.bind(this)
     }
 
-  handleFormSubmit(event) {
+  async handleFormSubmit(event) {
     event.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
     const name = this.state.name;
     const login = this.state.login;
-    this.service
-      .signup(name, login, email, password)
-      .then(response => {
-        this.setState({ login: "", name: "", email: "", password: "" })
-        this.props.getUser(response)
-        // this.props.history.push(
-        //   this.props.location.prevPath
-        //     ? this.props.location.prevPath
-        //     : "/projects"
-        // );
-      })
-      .catch(error => console.log(error));
+    const themeDisplay = this.state.themeDisplay
+    const editCall = await Axios.put(`${process.env.REACT_APP_URL}/api/user/update`,{
+      name: name,
+      email: email,
+      password: password,
+      login: login,
+      themeDisplay: themeDisplay
+    },{withCredentials: true})
+    console.log(editCall)
   }
 
   handleChange(event) {
