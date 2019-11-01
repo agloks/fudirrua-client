@@ -54,7 +54,7 @@ class Login extends Component {
     return (
       <section className="section-form " >
         <div className="container-form">
-          <form onSubmit={this.handleFormSubmit}>
+          <form onSubmit={this.handleFormSubmit} >
             <label>Email ou Username:</label>
             <input
               type="text"
