@@ -32,7 +32,7 @@ class AuthService {
     }
 
     logout() {
-        return this.service.get('/api/user/logout')
+        return this.service.get('/api/user/logout').then((s)=>{return s})
     }
 }
 

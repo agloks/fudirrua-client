@@ -29,8 +29,13 @@ export default class VideoHistory extends React.Component {
       <React.Fragment> 
         <Component filterCallProp={this.props.filterCallProp}>
         </Component>
-        {this.state.result.length &&
-          <VideosCard date = {this.state.result} />}
+        {this.state.result.length ?
+          <VideosCard date = {this.state.result} /> :
+          <div className="mid">
+            <h1><b>Tem histórico? aguarde...</b></h1>
+            <p>Se não, bora assisti um vídeo e bora encher seu histórico =)</p>
+          </div>
+        }
       </React.Fragment> 
     )
   }

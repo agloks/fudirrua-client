@@ -1,6 +1,7 @@
 import React from "react"
 import VideosCard from "./VideosCards"
 import VideoFiltedContext from "../Context/Context"
+import {SphereSpinner} from "react-spinners-kit"
 
 export default class VideoApi extends React.Component {
   constructor() {
@@ -29,7 +30,14 @@ export default class VideoApi extends React.Component {
       <VideoFiltedContext.Provider videoHome={this.state.result}>
         <VideosCard date = {this.state.result} /> 
       </VideoFiltedContext.Provider>
-      : null
+      :
+      <div id="loading">
+        <SphereSpinner
+          size={250}
+          color="#7AD2EB"
+          loading={!this.state.result.length}
+        />
+      </div>
     )
   }
 }

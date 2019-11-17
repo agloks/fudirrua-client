@@ -33,6 +33,24 @@ p {
   color: black;
 }
 
+#loading {
+  position: fixed;
+  float: left;
+  margin-top: 15%;
+  margin-left: 50%;
+}
+
+.mid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.mid-fail {
+  transform: translate(-50%, 150%);
+}
 
 /* BOTOES */
 /* classe btn é a geral] */
@@ -541,6 +559,14 @@ footer {
  
 /* media == md == 768 mobile*/
 @media (max-width: 769px) {
+  #loading {
+    width: 200px;
+    height: 200px;
+    float: none;
+    position: absolute;
+    top: 30rem;
+    transform: translate(-50%, -50%);
+  }
   .div-icons {
     display: none;
   }
@@ -723,6 +749,9 @@ footer {
 }
 
 @media (max-height: 470px) {
+  #loading {
+    margin-top: -0.6rem;
+  }
   html {
     font-size: 42%;
   }
