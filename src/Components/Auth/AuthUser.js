@@ -20,7 +20,7 @@ class AuthService {
 
     loggedin() {
         return this.service.get('/api/user/logged')
-            .then(response => {console.log(response);return response.data})
+            .then(response => {return response.data})
     }
 
     login(email, password) {
@@ -33,7 +33,6 @@ class AuthService {
 
     logout() {
         return this.service.get('/api/user/logout')
-            .then(response => console.log(response.data))
     }
 }
 

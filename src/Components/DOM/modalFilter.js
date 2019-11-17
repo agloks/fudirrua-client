@@ -51,5 +51,4 @@ export default function modalFilter() {
     exit.onclick = () => {
     searchDomMobile.style.display = "none"
   }
-  console.log(searchDomMobile)
 }

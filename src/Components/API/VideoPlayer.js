@@ -24,7 +24,6 @@ export default class PlayerVideo extends React.Component {
     try {
       this.registerHistory(this.props.match.params.idyou)
     } catch(err) {
-      console.log(err)
     }
   }
 

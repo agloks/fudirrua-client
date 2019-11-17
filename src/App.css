@@ -326,7 +326,7 @@ footer {
   opacity: 0.8;
   z-index: -1;
   position: absolute;
-  height: 100vh;
+  height: 130vh;
   width: 100vw;
   top: 0;
   left: 0;
@@ -336,14 +336,16 @@ footer {
 
 .container-form {
   display: flex;
-  flex-flow: column wrap;
-  height: 80%;
+  flex-flow: column;
+  /* height: 80%; */
+  height: 100%;
   width: 80%;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   font-size: 2rem;
   font-weight: bold;
   background-color: rgba(203,240,440,0.2);
+  font-size: 0%;
 }
 
 .container-form > span {
@@ -363,7 +365,8 @@ footer {
 .container-form > form {
   height: 50%;
   width: 78%;
-  align-self: flex-start;
+  /* align-self: flex-start; */
+  align-self: center;
   margin-left: 55px
 }
 
@@ -386,7 +389,7 @@ footer {
 }
 .container-form > form > button {
   margin-top: 20px;
-  height: 50%;
+  height: 26%;
   text-shadow: 0px 2px 2px white;
 }
 
@@ -399,6 +402,8 @@ footer {
   margin-top: 44px;
   padding: 11px;
   text-shadow: 0 9px 12px rgba(0, 0, 0, 1);
+  background-color: rgba(0,0,0,0.6);
+  width: 60%;
 }
 
 .container-form > p > a {
@@ -406,7 +411,7 @@ footer {
 }
 
 .container-form > form > button {
-  font-size: 3.25rem;
+  font-size: 2.4rem;
   letter-spacing: 6.2px;
 }
 
@@ -507,121 +512,7 @@ footer {
   z-index: -1;
 }
 /* media == md == 768 desktop*/
-@media (min-width: 769px) {
-  html {
-    font-size: 90%;
-  }
-  .navBar {
-    background: rgb(0,0,0);
-    height: 1.1rem;
-    padding: 15px;
-  }
-  .search {
-    display: none;
-  }
-  .logo {
-    width: 49px;
-    margin: 0px 6px 4px 24px;
-    height: 38px;
-    border: 3px solid black;
-    border-radius: 50%;
-    border-style: dotted;
-  }
-  .logo > a > img {
-    margin-top: 6px;
-    width: 80%;
-    height: 80%;
-    padding: 0px;
-    margin-left: 6px;
-  }
-  footer {
-    display: none;
-  }
-  .css-card-body {
-    padding: 0px;
-  }
-  .formAside {
-    background: rgb(229,229,229);
-    position: fixed;
-    height: 100vh;
-    width: 18 %;
-    float: left;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-  }
-  .top-filter {
-    display: flex;
-    margin-top: 30px;
-  }
-  /* filter,  */
-  .clearbox {
-    clear: both;
-    height: 0;
-    width: 0;
-  }
-  /*  main */
-  .css-card-body {
-    align-items: end;
-  }
-  .css-card-body>* {
-    margin-top: 20px;
-  }
-  .css-container {
-    /* height: inherit; */
-    position: relative;
-    float: right;
-    display: flex;
-    flex-flow: column;
-    width: 80%;
-    margin-top: 6rem;
-    /* background: red; */
-  }
-  .img-user {
-    display: none;
-  }
-  /* videosCards */
-  .div-you {
-    display: flex;
-    margin-left: 20px;
-    /* border: 2px black solid;
-    padding: 10px 0px 0px 30px;
-    border-radius: 160px; */
-    margin-bottom: 10px;
-    padding-left: 20px;
-    border-left: 3px cadetblue solid;
-  }
-  .img-you {
-    width: 180px;
-    margin-right: 40px;
-    height: 96px;
-  }
-  .linkVideoPlayer {
-    align-self: center;
-  }
-  .linkVideoPlayer > div > h4 {
-    letter-spacing: 1px;
-    font-size: 1.42rem;
-  }
-  .div-you>a {
-    width: inherit;
-    height: 100px;
-  }
-  /* VideoCards, CardVideo */
-  #filter {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin: 0px 20px;
-  }
-  /* USER-INFO */
-  .container-form-user > form > *{
-    margin-top: 20px;
-  }
-  .input-label-user-profile > select {
-    height: 28px;
-  }
 
-}
  .info-user-write {
   position: absolute;
   left: 240px;
@@ -815,9 +706,190 @@ footer {
 
 }
 
+@media (max-height: 650px) {
+  html{
+    font-size: 42%;
+  }
+  /* .container-form {
+    height: 100%;
+  }
+  .container-form > form {
+    align-self: center;
+  } */
+  .container-form > p {
+    margin-top: 80px;
+    width: 70%;
+  }
+}
+
+@media (max-height: 470px) {
+  html {
+    font-size: 42%;
+  }
+
+  .container-form {
+    height: 88vh;
+  }
+
+  .background-image {
+    height: 160vh;
+  }
+
+  .container-form > form > button {
+    height: 50%;
+  }
+
+  .section-form {
+    height: 120vh;
+  }
+}
+
+@media (max-height: 330px) {
+  html {
+    font-size: 42%;
+  }
+
+  .container-form {
+    height: 100vh;
+  }
+
+  .container-form > p {
+    margin-top: auto;
+  }
+
+  .background-image {
+    height: 160vh;
+  }
+
+  .container-form > form > button {
+    height: 50%;
+  }
+
+  .section-form {
+    height: 140vh;
+  }
+}
+
+/* media == md == 768 */
+@media (min-width: 769px) {
+  html {
+    font-size: 90%;
+  }
+  .navBar {
+    background: rgb(0,0,0);
+    height: 1.1rem;
+    padding: 15px;
+  }
+  .search {
+    display: none;
+  }
+  .logo {
+    width: 49px;
+    margin: 0px 6px 4px 24px;
+    height: 38px;
+    border: 3px solid black;
+    border-radius: 50%;
+    border-style: dotted;
+  }
+  .logo > a > img {
+    margin-top: 6px;
+    width: 80%;
+    height: 80%;
+    padding: 0px;
+    margin-left: 6px;
+  }
+  footer {
+    display: none;
+  }
+  .css-card-body {
+    padding: 0px;
+  }
+  .formAside {
+    background: rgb(229,229,229);
+    position: fixed;
+    height: 100vh;
+    width: 18 %;
+    float: left;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+  }
+  .top-filter {
+    display: flex;
+    margin-top: 30px;
+  }
+  /* filter,  */
+  .clearbox {
+    clear: both;
+    height: 0;
+    width: 0;
+  }
+  /*  main */
+  .css-card-body {
+    align-items: end;
+  }
+  .css-card-body>* {
+    margin-top: 20px;
+  }
+  .css-container {
+    /* height: inherit; */
+    position: relative;
+    float: right;
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin-top: 6rem;
+    /* background: red; */
+  }
+  .img-user {
+    display: none;
+  }
+  /* videosCards */
+  .div-you {
+    display: flex;
+    margin-left: 20px;
+    /* border: 2px black solid;
+    padding: 10px 0px 0px 30px;
+    border-radius: 160px; */
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-left: 3px cadetblue solid;
+  }
+  .img-you {
+    width: 180px;
+    margin-right: 40px;
+    height: 96px;
+  }
+  .linkVideoPlayer {
+    align-self: center;
+  }
+  .linkVideoPlayer > div > h4 {
+    letter-spacing: 1px;
+    font-size: 1.42rem;
+  }
+  .div-you>a {
+    width: inherit;
+    height: 100px;
+  }
+  /* VideoCards, CardVideo */
+  #filter {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0px 20px;
+  }
+  /* USER-INFO */
+  .container-form-user > form > *{
+    margin-top: 20px;
+  }
+  .input-label-user-profile > select {
+    height: 28px;
+  }
+
+}
+
 /* Media tablet */
-/* @media (min-width: 897px ) {
-  .btn-search {
+ @media (min-width: 756px) and (max-width: 1145px) {
+  /* .btn-search {
     width: 100%;
   }
   .btn-erase {
@@ -829,8 +901,11 @@ footer {
     display: flex;
     flex-flow: column wrap;
     margin: 0;
+  } */
+  .css-container {
+    width: 71%
   }
-} */
+}
 
 
 /* OVERRIDE */

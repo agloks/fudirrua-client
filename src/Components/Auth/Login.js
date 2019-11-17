@@ -9,7 +9,6 @@ class Login extends Component {
     this.service = new AuthService();
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    console.log(props)
   }
 
   handleFormSubmit(event) {
@@ -21,7 +20,6 @@ class Login extends Component {
       .then(response => {
         this.setState({ email: "", password: "" })
         this.props.getUser(response)
-        console.log(this.props)
         this.props.history.push(
           this.props.location.prevPath
             ? this.props.location.prevPath
@@ -33,7 +31,6 @@ class Login extends Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-    console.log(value)
     this.setState({ [name]: value });
   }
 

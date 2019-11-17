@@ -14,7 +14,6 @@ export default class UserInfo extends React.Component {
       themeDisplay: "default",
       location: props.user.location !== undefined ? props.user.location : ""
       }
-      console.log(props.user.email)
       this.service = new AuthService()
       this.user = props.user
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -36,26 +35,24 @@ export default class UserInfo extends React.Component {
       login: login,
       themeDisplay: themeDisplay
     },{withCredentials: true})
-    console.log(editCall)
+    .then((s) => this.logout())
   }
 
   handleChange(event) {
     const { name, value } = event.target;
-    console.log(value)
     this.setState({ [name]: value });
   }
 
   logout(event) {
-    event.preventDefault()
+    if(event) event.preventDefault()
     this.service.logout().then((s) => {
-      console.log(this.props)
-      this.props.getUser(s);
-      this.props.history.push(
-        this.props.location.prevPath
-          ? this.props.location.prevPath
-          : "/"
-      );
-    })
+    this.props.getUser(s);
+    this.props.history.push(
+      this.props.location.prevPath
+        ? this.props.location.prevPath
+        : "/"
+    );
+  })
   }
 
   render() {
@@ -129,7 +126,7 @@ export default class UserInfo extends React.Component {
           </select>
           </div>
           <div className="div-button-user-edits">
-            <button className="btn btn-secondary btn-submit-user" type="submit" value="Send" > TROQUE DE ROUPA! </button>
+            <button className="btn btn-secondary btn-submit-user" type="submit" value="Send" > EDITAR! </button>
             <button className="btn btn-secondary btn-submit-logout" value="Logout" onClick={this.logout} > Logout! </button>
           </div>
         </form>
