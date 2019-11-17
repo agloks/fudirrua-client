@@ -63,7 +63,7 @@ export default class VideoCard extends React.Component {
             }
           }) : 
           <div class="mid mid-fail">
-            <h2>Sem resultado em até 10 segundo ? provalvemente não existe a <pesquisa></pesquisa> ou sua net caiu</h2>
+            <h2>Sem resultado em até 10 segundo ? provalvemente não existe videos de acordo com o filtro ou sua net caiu, tente outros filtros e verifique sua net=)</h2>
           </div>
           }
       </main>

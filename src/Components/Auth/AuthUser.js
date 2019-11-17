@@ -31,8 +31,9 @@ class AuthService {
             .then(response => response.data)
     }
 
-    logout() {
-        return this.service.get('/api/user/logout').then((s)=>{return s})
+    async logout() {
+        this.service.get('/api/user/logout')
+        return null
     }
 }
 

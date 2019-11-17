@@ -137,6 +137,21 @@ class App extends React.Component {
                   <h1>Logue para ver registar/ver seus históricos</h1>
                 </div>
               </Route>}
+            <Route path="/hearts">
+                <div className="mid">
+                  <h1>Novidades em breve, aguarde... =)</h1>
+                </div>
+            </Route>
+            <Route path="/share">
+              <div className="mid">
+                <h1>Novidades em breve, aguarde... =)</h1>
+              </div>
+            </Route>
+            <Route path="/maps">
+              <div className="mid">
+                <h1>Novidades em breve, aguarde... =)</h1>
+              </div>
+            </Route>
             <ProtectedRoute
                 key = {this.state.signUpdate}
                 user={this.state.user}

@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
       <footer>
           <div className="icon-footer">
             <figure className="figure-icon-footer">
-              <Link to="/map">
+              <Link to="/maps">
                 <img src="/images/gps-icon.png" alt="lupa-footer" />
               </Link>
             </figure>

@@ -46,7 +46,7 @@ export default class UserInfo extends React.Component {
   logout(event) {
     if(event) event.preventDefault()
     this.service.logout().then((s) => {
-    this.props.getUser(s);
+    this.props.getUser(s)
     this.props.history.push(
       this.props.location.prevPath
         ? this.props.location.prevPath
